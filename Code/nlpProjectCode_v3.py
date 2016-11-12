@@ -38,12 +38,24 @@ if __name__ == '__main__':
 		testCorpus.append(f.read())
 		f.close()
 	text_pipeline=Pipeline([('vect', CountVectorizer()),
-							('tfidf', TfidfTransformer()),
+							('tfidf', TfidfTransformer(use_idf=False)),
 							('clf',  MultinomialNB(alpha=0))])
 	text_pipeline=text_pipeline.fit(trainCorpus,train_labels)
 	predicted=text_pipeline.predict(testCorpus)
 	print "NB Accuracy: "+str(np.mean(predicted==test_labels))
 
+	wordFreqTrain=text_pipeline.named_steps['vect'].fit_transform(trainCorpus).toarray()
+	wordNameDict=text_pipeline.named_steps['vect'].get_feature_names()
+	wordFreqArray=np.sum(wordFreqTrain, axis=0)
+
+	print "Number of training Tokens: "+str(sum(wordFreqArray))
+	print "Size of training Vocabulary: "+str(len(wordNameDict))
+	#print "Top 20 words below: "
+	wordCountDict=dict(zip(wordNameDict,wordFreqArray))
+	wordCountList=sorted(wordCountDict,key=wordCountDict.get, reverse=True)
+	print "Top 100 words below: "
+	for i in range(100):
+		print str(wordCountList[i]) +" : "+ str(wordCountDict[str(wordCountList[i])])
 
 	params={"vect__ngram_range":[(1,1),(1,2)],
 			"tfidf__use_idf":(True,False),
