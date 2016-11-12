@@ -1,6 +1,7 @@
 import os
 from collections import defaultdict
 import numpy as np
+import math
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.naive_bayes import MultinomialNB
@@ -8,6 +9,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.linear_model import SGDClassifier
 from sklearn import metrics
 from sklearn.grid_search import GridSearchCV
+import matplotlib.pyplot as plt
 
 if __name__ == '__main__':
 	#Change the paths to match up with your corresponding path
@@ -26,12 +28,13 @@ if __name__ == '__main__':
 		f=open(os.path.join(trainPath,fn))
 		trainCorpus.append(f.read())
 		f.close()
-	for fn in devFileNames:
-		train_labels=np.append(train_labels,fn[19])
-		f=open(os.path.join(devPath,fn))
-		trainCorpus.append(f.read())
-		f.close()
+	# for fn in devFileNames:
+	# 	train_labels=np.append(train_labels,fn[19])
+	# 	f=open(os.path.join(devPath,fn))
+	# 	trainCorpus.append(f.read())
+	# 	f.close()
 	testCorpus=[]
+	print "Number of Documents in Training Set: "+str(len(trainFileNames))
 	for fn in testFileNames:
 		test_labels=np.append(test_labels,fn[19])
 		f=open(os.path.join(testPath,fn))
@@ -56,6 +59,19 @@ if __name__ == '__main__':
 	print "Top 100 words below: "
 	for i in range(100):
 		print str(wordCountList[i]) +" : "+ str(wordCountDict[str(wordCountList[i])])
+	for i in range(200):
+		print str(wordCountList[-i])
+	#print wordCountList
+	length=len(wordCountList)
+	rank=range(1,length+1)
+	log_rank=[math.log(x) for x in rank]
+	log_freq=[math.log(wordCountDict[word]) for word in wordCountList]
+	fig = plt.figure()
+	ax = plt.gca()
+	ax.scatter( log_rank, log_freq, linewidth=2)
+	plt.xlabel("log(rank)")
+	plt.ylabel("log(frequency)")
+	plt.show()
 
 	params={"vect__ngram_range":[(1,1),(1,2)],
 			"tfidf__use_idf":(True,False),
