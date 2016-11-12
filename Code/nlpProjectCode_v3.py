@@ -71,7 +71,9 @@ if __name__ == '__main__':
 	ax.scatter( log_rank, log_freq, linewidth=2)
 	plt.xlabel("log(rank)")
 	plt.ylabel("log(frequency)")
-	plt.show()
+	plt.title("Zipfs Law on Training Corpus")
+	#plt.show()
+	plt.savefig("zipfslaw.pdf")
 
 	params={"vect__ngram_range":[(1,1),(1,2)],
 			"tfidf__use_idf":(True,False),
