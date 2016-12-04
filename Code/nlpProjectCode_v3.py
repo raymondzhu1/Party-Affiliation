@@ -9,10 +9,21 @@ from sklearn.pipeline import Pipeline
 from sklearn.linear_model import SGDClassifier
 from sklearn import metrics
 from sklearn.grid_search import GridSearchCV
+import pickle
 import matplotlib.pyplot as plt
+
+def saveToPickle(dict,name):
+	pickle.dump(dict,open(name,"wb"))
+	return
+
+def loadFromPickle(filename):
+	dictLoad=pickle.load(open(filename,"rb"))
+	return copy.deepcopy(dictLoad)
+
 
 if __name__ == '__main__':
 	#Change the paths to match up with your corresponding path
+	destPath="/Users/nugthug/PycharmProjects/Party-Affiliation/PickleDicts/"
 	trainPath="/Users/nugthug/Documents/cmpsci/585/f2016/Project/convote/data_stage_one/training_set/"
 	testPath="/Users/nugthug/Documents/cmpsci/585/f2016/Project/convote/data_stage_one/test_set/"
 	devPath="/Users/nugthug/Documents/cmpsci/585/f2016/Project/convote/data_stage_one/development_set/"
@@ -77,7 +88,7 @@ if __name__ == '__main__':
 
 	params={"vect__ngram_range":[(1,1),(1,2)],
 			"tfidf__use_idf":(True,False),
-			"clf__alpha":[0,.1,.5,1,1.5,2]}
+			"clf__alpha":[0,.1,.5,1,1.5,2,10,100]}
 	crossValidationClf=GridSearchCV(text_pipeline,params,n_jobs=-1)
 	crossValidationClf=crossValidationClf.fit(trainCorpus,train_labels)
 	best_parameters, score, _ = max(crossValidationClf.grid_scores_ , key=lambda x: x[1])
@@ -86,7 +97,7 @@ if __name__ == '__main__':
 	predicted=crossValidationClf.predict(testCorpus)
 	print "NB CV Accuracy: "+str(score)
 	print "NB CV Test Accuracy: "+str(np.mean(predicted==test_labels))
-
+	saveToPickle(crossValidationClf.grid_scores_,destPath+"NBGS.p")
 
 	text_pipeline=Pipeline([('vect', CountVectorizer()),
 							('tfidf', TfidfTransformer()),
@@ -99,7 +110,9 @@ if __name__ == '__main__':
 	print(metrics.confusion_matrix(test_labels,predicted))
 	params={"vect__ngram_range":[(1,1),(1,2)],
 			"tfidf__use_idf":(True,False),
-			"clf__alpha":(1e-2,1e-3)}
+			"clf__alpha":[.0001,.01,.1,1,10,100],
+			"clf__loss":["hinge","log","perceptron"],
+			"clf__penalty":["none","l1","l2"]}
 	crossValidationClf=GridSearchCV(text_pipeline,params,n_jobs=-1)
 	crossValidationClf=crossValidationClf.fit(trainCorpus,train_labels)
 	best_parameters, score, _ = max(crossValidationClf.grid_scores_ , key=lambda x: x[1])
@@ -108,3 +121,4 @@ if __name__ == '__main__':
 	predicted=crossValidationClf.predict(testCorpus)
 	print "SVM CV Accuracy: "+str(score)
 	print "SVM CV Test Accuracy: "+str(np.mean(predicted==test_labels))
+	saveToPickle(crossValidationClf.grid_scores_,destPath+"sdgClassifierGS.p")
