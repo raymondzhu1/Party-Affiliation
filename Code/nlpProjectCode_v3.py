@@ -88,7 +88,7 @@ if __name__ == '__main__':
 
 	params={"vect__ngram_range":[(1,1),(1,2)],
 			"tfidf__use_idf":(True,False),
-			"clf__alpha":[0,.1,.5,1,1.5,2,10,100]}
+			"clf__alpha":[0,.05,.1,.15,.2,.25,.3,.35,.4,.45,.5,.55,.6,1]}
 	crossValidationClf=GridSearchCV(text_pipeline,params,n_jobs=-1)
 	crossValidationClf=crossValidationClf.fit(trainCorpus,train_labels)
 	best_parameters, score, _ = max(crossValidationClf.grid_scores_ , key=lambda x: x[1])
@@ -104,13 +104,13 @@ if __name__ == '__main__':
 							('clf',  SGDClassifier())])
 	text_pipeline=text_pipeline.fit(trainCorpus,train_labels)
 	predicted=text_pipeline.predict(testCorpus)
-	print "SVM Accuracy: "+str(np.mean(predicted==test_labels))
+	print "NB Accuracy: "+str(np.mean(predicted==test_labels))
 
 	print(metrics.classification_report(test_labels,predicted))
 	print(metrics.confusion_matrix(test_labels,predicted))
 	params={"vect__ngram_range":[(1,1),(1,2)],
 			"tfidf__use_idf":(True,False),
-			"clf__alpha":[.0001,.01,.1,1,10,100],
+			"clf__alpha":np.arange(0.00005,.0009,.00005),
 			"clf__loss":["hinge","log","perceptron"],
 			"clf__penalty":["none","l1","l2"]}
 	crossValidationClf=GridSearchCV(text_pipeline,params,n_jobs=-1)
