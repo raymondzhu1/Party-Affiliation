@@ -39,11 +39,11 @@ if __name__ == '__main__':
 		f=open(os.path.join(trainPath,fn))
 		trainCorpus.append(f.read())
 		f.close()
-	# for fn in devFileNames:
-	# 	train_labels=np.append(train_labels,fn[19])
-	# 	f=open(os.path.join(devPath,fn))
-	# 	trainCorpus.append(f.read())
-	# 	f.close()
+	for fn in devFileNames:
+		train_labels=np.append(train_labels,fn[19])
+		f=open(os.path.join(devPath,fn))
+		trainCorpus.append(f.read())
+		f.close()
 	testCorpus=[]
 	print "Number of Documents in Training Set: "+str(len(trainFileNames))
 	for fn in testFileNames:
@@ -97,7 +97,7 @@ if __name__ == '__main__':
 	predicted=crossValidationClf.predict(testCorpus)
 	print "NB CV Accuracy: "+str(score)
 	print "NB CV Test Accuracy: "+str(np.mean(predicted==test_labels))
-	saveToPickle(crossValidationClf.grid_scores_,destPath+"NBGS.p")
+	saveToPickle(crossValidationClf.grid_scores_,destPath+"NBGSWDev.p")
 
 	text_pipeline=Pipeline([('vect', CountVectorizer()),
 							('tfidf', TfidfTransformer()),
@@ -121,4 +121,4 @@ if __name__ == '__main__':
 	predicted=crossValidationClf.predict(testCorpus)
 	print "SVM CV Accuracy: "+str(score)
 	print "SVM CV Test Accuracy: "+str(np.mean(predicted==test_labels))
-	saveToPickle(crossValidationClf.grid_scores_,destPath+"sdgClassifierGS.p")
+	saveToPickle(crossValidationClf.grid_scores_,destPath+"sdgClassifierGSWdev.p")
