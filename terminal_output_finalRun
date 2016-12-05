@@ -1,0 +1,335 @@
+eduroamguest-3-020:Code nugthug$ python nlpProjectCode_v3.py
+Number of Documents in Training Set: 5660
+/Users/nugthug/anaconda/lib/python2.7/site-packages/sklearn/naive_bayes.py:664: RuntimeWarning: divide by zero encountered in log
+  self.feature_log_prob_ = (np.log(smoothed_fc)
+NB Accuracy: 0.633314383172
+Number of training Tokens: 1544279
+Size of training Vocabulary: 24564
+Top 100 words below:
+the : 101297
+to : 54343
+of : 47902
+and : 42608
+that : 31548
+in : 30290
+is : 23632
+this : 21473
+for : 18367
+we : 18133
+it : 14870
+not : 12917
+have : 12427
+on : 12378
+are : 12284
+mr : 11793
+from : 9602
+be : 9148
+our : 8772
+as : 8590
+bill : 8159
+with : 8039
+will : 7508
+by : 7414
+they : 7219
+would : 7136
+chairman : 6307
+my : 5682
+do : 5622
+an : 5426
+has : 5368
+their : 5359
+or : 5149
+gentleman : 5088
+time : 4945
+but : 4922
+speaker : 4878
+amendment : 4610
+at : 4352
+who : 4206
+was : 4171
+can : 4156
+all : 4126
+these : 3978
+what : 3867
+if : 3850
+there : 3732
+you : 3699
+committee : 3680
+so : 3654
+more : 3634
+people : 3630
+about : 3580
+been : 3219
+which : 3215
+yield : 3165
+one : 3101
+support : 2973
+no : 2953
+us : 2946
+because : 2896
+those : 2824
+states : 2742
+house : 2706
+state : 2641
+when : 2606
+should : 2584
+other : 2582
+congress : 2576
+federal : 2573
+new : 2534
+out : 2465
+legislation : 2440
+today : 2336
+than : 2321
+very : 2300
+year : 2266
+energy : 2263
+budget : 2249
+some : 2242
+them : 2220
+were : 2220
+just : 2211
+also : 2208
+million : 2195
+health : 2177
+want : 2157
+need : 2139
+up : 2129
+act : 2127
+make : 2121
+years : 2103
+over : 2074
+any : 2065
+american : 2037
+does : 2021
+law : 2016
+country : 2006
+united : 1993
+vote : 1970
+the
+emery
+fleeced
+boor
+bombarding
+dearth
+wrests
+nassau
+contradictory
+thimerosal
+maize
+dispossessed
+surfrider
+11s
+wesley
+slur
+hulshof
+murdoch
+glacial
+neglecting
+mosquitoes
+sequence
+traitors
+withstood
+subprime
+repressed
+dancer
+represses
+emeryville
+republics
+micromanagement
+ski
+readymade
+disturbance
+miniscule
+breaker
+theses
+diploma
+premiere
+craige
+nonnative
+merciful
+grandmomma
+headlight
+wily
+horsewoman
+verizon
+emirate
+wil1
+bbc
+unhappiness
+3160
+3162
+shoving
+grail
+soapbox
+audiovisual
+alphabetically
+2662
+closet
+biofuel
+035
+036
+033
+wilmette
+turbulent
+truer
+viet
+mouthful
+penetrate
+sues
+998
+990
+991
+997
+995
+cache
+hamburglar
+xavier
+centre
+spawns
+ahold
+supplanted
+alfonse
+alfonso
+lateness
+sculpture
+enticement
+frugal
+tommy
+riches
+leaseholds
+peoria
+drool
+kingman
+harmlessness
+wildlands
+obliteration
+secruity
+gritz
+firepower
+usdoj
+counterinsurgency
+asfe
+voiceless
+encyclicals
+dearest
+elie
+eisenberg
+interrupted
+daycare
+richland
+xz4001950
+usair
+tan
+heaving
+flaring
+arlen
+tat
+slaps
+brochure
+porch
+iced
+herzog
+offends
+indicia
+scrapped
+handedly
+tipitapa
+imams
+worships
+haywood
+alden
+717
+ridiculousness
+geoss
+92nd
+cutters
+atkins
+haney
+skippered
+soars
+declarations
+gallantry
+signified
+nonsupportive
+amidst
+resilience
+underclassmen
+glooming
+resiliency
+assoc
+lobotomies
+seeped
+disconcerted
+nonjudicial
+janjaweed
+prod
+prof
+1520
+empt
+hinted
+rejoinders
+672
+aggregation
+670
+677
+cabaret
+inference
+solids
+starves
+zubowski
+spears
+rig
+rim
+shamrock
+lodges
+misappropriations
+bailouts
+1868
+nehf
+tizegha
+eyewitness
+toohey
+blazed
+penchant
+18s
+learns
+matin
+ars
+hid
+feminists
+xz4004122
+reestablished
+coincides
+1047
+reestablishes
+infrastructures
+miserly
+stellarator
+clf__alpha: 0.05
+tfidf__use_idf: True
+vect__ngram_range: (1, 2)
+NB CV Accuracy: 0.689563030494
+NB CV Test Accuracy: 0.706083001706
+NB Accuracy: 0.718021603184
+/Users/nugthug/anaconda/lib/python2.7/site-packages/sklearn/metrics/classification.py:1074: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
+             precision    recall  f1-score   support
+
+          D       0.75      0.65      0.69       863
+          I       0.00      0.00      0.00         5
+          R       0.70      0.79      0.74       891
+
+avg / total       0.72      0.72      0.72      1759
+
+[[558   0 305]
+ [  3   0   2]
+ [186   0 705]]
+clf__alpha: 0.00030000000000000003
+clf__loss: 'hinge'
+clf__penalty: 'none'
+tfidf__use_idf: True
+vect__ngram_range: (1, 2)
+SVM CV Accuracy: 0.709368123232
+SVM CV Test Accuracy: 0.736213757817
+eduroamguest-3-020:Code nugthug$
