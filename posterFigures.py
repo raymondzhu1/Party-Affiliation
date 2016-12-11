@@ -45,8 +45,8 @@ def plotSVMgridClose(svmGrid):
     #plt.plot(kList,testErrList,'sb-', linewidth=3)
     plt.grid(True) #Turn the grid on
     plt.ylabel("Crossvalidation Accuracy") #Y-axis label
-    plt.xlabel("Log Alpha") #X-axis label
-    plt.title("Bigram Td-Idf Log Hinge and Perceptrion Loss by Log Alpha") #Plot title
+    plt.xlabel("Alpha") #X-axis label
+    plt.title("Bigram Tf-Idf Log Hinge and Perceptrion Loss by Log Alpha") #Plot title
     plt.xlim(0,.00095) #set x axis range
     plt.ylim(.65,.72) #Set yaxis range
     plt.legend(["SVM","Logistic Regrssion","Perceptron"],loc="best")
@@ -91,9 +91,9 @@ def plotSVMgridBig(svmGrid):
     plt.grid(True) #Turn the grid on
     plt.ylabel("Crossvalidation Accuracy") #Y-axis label
     plt.xlabel("Alpha") #X-axis label
-    plt.title("Bigram Td-Idf L2 Penalty SVM LR and Perceptron CV Scores by Alpha") #Plot title
-    plt.xlim(0.0001,1) #set x axis range
-    plt.ylim(.5,.8) #Set yaxis range
+    plt.title("Bigram Tf-Idf L2 Penalty SVM LR and Perceptron CV Scores by Alpha") #Plot title
+    plt.xlim(0.0001,.003) #set x axis range
+    plt.ylim(.6,.75) #Set yaxis range
     plt.legend(["SVM","Logistic Regrssion","Perceptron"],loc="best")
     #Make sure labels and titles are inside plot area
     plt.tight_layout()
@@ -126,7 +126,7 @@ def plotSVMgridTdidf(svmGrid):
                 scoreArray.append(newMatrix[i,0])
                 tdIdfList.append(newMatrix[i,2])
         metDict[met]=[scoreArray,tdIdfList]
-    typeDict={"hinge":'b-',"log":'g-',"perceptron":'r-'}
+    typeDict={"hinge":'b',"log":'g',"perceptron":'r'}
 
     #fig, ax=plt.subplots(figsize=(10,5))
     #for met in metDict.keys():
@@ -135,19 +135,19 @@ def plotSVMgridTdidf(svmGrid):
     print str(labelDict["hinge"])
     for met in metDict.keys():
         inds=np.arange(2)
-        labels=["No Td-Idf","Yes Td-Idf"]
+        labels=["No Tf-Idf","Yes Tf-Idf"]
         plt.figure(1,figsize=(7,5))
-        plt.bar(metDict[met][1],metDict[met][0],align='center')
+        plt.bar(metDict[met][1],metDict[met][0],align='center',color=typeDict[met])
     #plt.plot(kList,testErrList,'sb-', linewidth=3)
         plt.grid(True) #Turn the grid on
         plt.ylabel("Crossvalidation Accuracy") #Y-axis label
-        plt.xlabel("TD-IDF") #X-axis label
-        plt.title("Bigram L2 Penalty Alpha=.0001 CV Scores by Tf-IDF") #Plot title
+        plt.xlabel("Tf-Idf") #X-axis label
+        plt.title("Bigram L2 Penalty Alpha=.0001 CV Scores by Tf-Idf") #Plot title
         plt.xlim(-.5,1.5) #set x axis range
         plt.ylim(.5,.8) #Set yaxis range
         plt.gca().set_xticks(inds)
         plt.gca().set_xticklabels(labels)
-        plt.legend(str(labelDict[met]),loc="best")
+        plt.legend((labelDict[met],),loc="best")
     #Make sure labels and titles are inside plot area
         plt.tight_layout()
     #Save the chart
@@ -180,7 +180,7 @@ def plotSVMgridBigram(svmGrid):
                 scoreArray.append(newMatrix[i,0])
                 bigramList.append(newMatrix[i,1])
         metDict[met]=[scoreArray,bigramList]
-    typeDict={"hinge":'b-',"log":'g-',"perceptron":'r-'}
+    typeDict={"hinge":'b',"log":'g',"perceptron":'r'}
     #fig, ax=plt.subplots(figsize=(10,5))
     #for met in metDict.keys():
         #print met, metDict[met]
@@ -190,17 +190,17 @@ def plotSVMgridBigram(svmGrid):
         inds=np.arange(2)
         labels=["Unigram","Bigram"]
         plt.figure(1,figsize=(7,5))
-        plt.bar(inds,metDict[met][0],align='center')
+        plt.bar(inds,metDict[met][0],align='center',color=typeDict[met])
     #plt.plot(kList,testErrList,'sb-', linewidth=3)
         plt.grid(True) #Turn the grid on
         plt.ylabel("Crossvalidation Accuracy") #Y-axis label
         plt.xlabel("Language Model") #X-axis label
-        plt.title("L2 Penalty Alpha=.0001 with TD-IDF \n CV Scores by Language Model") #Plot title
+        plt.title("L2 Penalty Alpha=.0001 with Tf-Idf \n CV Scores by Language Model") #Plot title
         plt.xlim(-.5,1.5) #set x axis range
         plt.ylim(.5,.8) #Set yaxis range
         plt.gca().set_xticks(inds)
         plt.gca().set_xticklabels(labels)
-        plt.legend(str(labelDict[met]),loc="best")
+        plt.legend((labelDict[met],))
     #Make sure labels and titles are inside plot area
         plt.tight_layout()
     #Save the chart
@@ -210,7 +210,17 @@ def plotSVMgridBigram(svmGrid):
 
 
 
-# svmGrid=loadFromPickle(picklePath+"sdgClassifierGSWdev.p")
-# plotSVMgridClose(svmGrid)
+svmGrid=loadFromPickle(picklePath+"sdgClassifierGSWdev.p")
+plotSVMgridClose(svmGrid)
+#plotSVMgridBig(svmGrid)
+
+svmGridbig=loadFromPickle(picklePath+'sdgClassifierGSWdevBig2.p')
+plotSVMgridBig(svmGridbig)
+#plotSVMgridBigram(svmGridbig)
+#plotSVMgridTdidf(svmGridbig)
+#plotSVMgridClose(svmGridbig)
+
 svmGridbig=loadFromPickle(picklePath+'sdgClassifierGSWdevBig.p')
 plotSVMgridBigram(svmGridbig)
+plotSVMgridTdidf(svmGridbig)
+#plotSVMgridClose(svmGridbig)
