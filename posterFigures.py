@@ -53,7 +53,7 @@ def plotSVMgridClose(svmGrid):
     #Make sure labels and titles are inside plot area
     plt.tight_layout()
     #Save the chart
-    plt.savefig(destPath+"FiguresSVM_line_plot.pdf")
+    plt.savefig(destPath+"FiguresSVM_line_plot.png")
     plt.show()
     plt.clf()
 
@@ -98,7 +98,7 @@ def plotSVMgridBig(svmGrid):
     #Make sure labels and titles are inside plot area
     plt.tight_layout()
     #Save the chart
-    plt.savefig(destPath+"FiguresSVM_line_plot_bigalpha.pdf")
+    plt.savefig(destPath+"FiguresSVM_line_plot_bigalpha.png")
     plt.show()
     plt.clf()
 
@@ -151,7 +151,7 @@ def plotSVMgridTdidf(svmGrid):
     #Make sure labels and titles are inside plot area
         plt.tight_layout()
     #Save the chart
-        plt.savefig(destPath+"FiguresSVM_TFIDF_on_off_"+met+".pdf")
+        plt.savefig(destPath+"FiguresSVM_TFIDF_on_off_"+met+".png")
         plt.show()
         plt.clf()
 
@@ -204,7 +204,7 @@ def plotSVMgridBigram(svmGrid):
     #Make sure labels and titles are inside plot area
         plt.tight_layout()
     #Save the chart
-        plt.savefig(destPath+"FiguresSVM_bigram_"+met+".pdf")
+        plt.savefig(destPath+"FiguresSVM_bigram_"+met+".png")
         plt.show()
         plt.clf()
 
