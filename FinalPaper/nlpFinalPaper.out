@@ -1,0 +1,15 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Related Works}{}% 2
+\BOOKMARK [1][-]{section.3}{Data}{}% 3
+\BOOKMARK [1][-]{section.4}{Method}{}% 4
+\BOOKMARK [1][-]{section.5}{Proposed Solution and Experiments}{}% 5
+\BOOKMARK [2][-]{subsection.5.1}{Optimal Preprocessing}{section.5}% 6
+\BOOKMARK [3][-]{subsubsection.5.1.1}{Unigram vs. Bigram Language Model}{subsection.5.1}% 7
+\BOOKMARK [3][-]{subsubsection.5.1.2}{Tf-Idf Weighting}{subsection.5.1}% 8
+\BOOKMARK [2][-]{subsection.5.2}{Classifiers and Hyperparameters}{section.5}% 9
+\BOOKMARK [3][-]{subsubsection.5.2.1}{Multinomial Naive Bayes Experiments}{subsection.5.2}% 10
+\BOOKMARK [3][-]{subsubsection.5.2.2}{Stochastic Gradient Descent Experiments}{subsection.5.2}% 11
+\BOOKMARK [1][-]{section.6}{Experiments and Results}{}% 12
+\BOOKMARK [2][-]{subsection.6.1}{Baseline Algorithms}{section.6}% 13
+\BOOKMARK [2][-]{subsection.6.2}{Optimal Preprocessing}{section.6}% 14
+\BOOKMARK [2][-]{subsection.6.3}{Optimal Hyper-parameters and Results}{section.6}% 15

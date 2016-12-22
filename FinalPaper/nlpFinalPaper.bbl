@@ -1,0 +1,30 @@
+\begin{thebibliography}{1}
+
+\bibitem{iyyer2014political}
+Mohit Iyyer, Peter Enns, Jordan Boyd-Graber, and Philip Resnik.
+\newblock Political ideology detection using recursive neural networks.
+\newblock In {\em Proceedings of the Association for Computational
+  Linguistics}, 2014.
+
+\bibitem{pedregosa2011scikit}
+Fabian Pedregosa, Ga{\"e}l Varoquaux, Alexandre Gramfort, Vincent Michel,
+  Bertrand Thirion, Olivier Grisel, Mathieu Blondel, Peter Prettenhofer, Ron
+  Weiss, Vincent Dubourg, et~al.
+\newblock Scikit-learn: Machine learning in python.
+\newblock {\em Journal of Machine Learning Research}, 12(Oct):2825--2830, 2011.
+
+\bibitem{thomas2006get}
+Matt Thomas, Bo~Pang, and Lillian Lee.
+\newblock Get out the vote: Determining support or opposition from
+  congressional floor-debate transcripts.
+\newblock In {\em Proceedings of the 2006 conference on empirical methods in
+  natural language processing}, pages 327--335. Association for Computational
+  Linguistics, 2006.
+
+\bibitem{yu2008classifying}
+Bei Yu, Stefan Kaufmann, and Daniel Diermeier.
+\newblock Classifying party affiliation from political speech.
+\newblock {\em Journal of Information Technology \&amp; Politics}, 5(1):33--48,
+  2008.
+
+\end{thebibliography}
