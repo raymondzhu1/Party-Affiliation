@@ -3,7 +3,12 @@ import numpy as np
 import pickle
 import copy
 import math
+'''
+This is the code we used to create our exhibits
+We loaded our gridsearchcv files from pickle so we
+could perfect our plots and not wait for new runs each time.
 
+'''
 def loadFromPickle(filename):
 	dictLoad=pickle.load(open(filename,"rb"))
 	return copy.deepcopy(dictLoad)

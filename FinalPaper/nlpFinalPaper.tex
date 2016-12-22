@@ -23,10 +23,12 @@ Raymond Zhu\\
 \textbf{Predicting Political Party Affiliation from Speech}
 \end{center}
 
+\section{Abstract}
+We attempt to classify a speaker's party affiliation from their word usage by analyzing a corpus of congressional speeches.  We investigate the impact of different preprocessing techniques on accuracy and test Multinomial Naive Bayes and Stochastic Gradient Descent classifiers. We preform 3-fold cross-validation on each classifier to find optimal hyper-perameters. We find that bigram language modeling with Tf-Idf weighting and a Stochastic Gradient Descent classifer with Hinge loss, $l2$ regularization penalty, regularization constant $\alpha=.0001$ result in an optimal observed test accuracy of 74.9\%.
 	
 	\section{Introduction}
 	
-	This research attempts to predict a speaker's political party affiliation based on the language used in their congressional speeches. We are using the \href{http://www.cs.cornell.edu/home/llee/data/convote.html}{Congressional speeches dataset} created by Lillian Lee at Cornell \cite{thomas2006get}. The dataset has been preprocessed somewhat and split into train, validation, and test sets.  We first perform exploratory data analysis to ensure high data quality and understand some idiosyncrasies of this data asset. We look at differences between the parties in commonly used terms for insight into differences in policy positions. We then use the \cite{pedregosa2011scikit} Scikit Learn library to create a data analysis pipeline to ensure that we have consistency in how the data is being processed while testing both Multinomial Naive Bayes and Stochastic Gradient Descent classifiers.  For each we use 3-fold cross validation to search for optimal hyper-parameters and optimal processing techniques.  We compare cross validation accuracy between unigram and bigram language models and also train our classifiers both including Tf-Idf weighting and excluding Tf-Idf weighting. Ultimately we found that Stochastic Gradient Descent with Hinge loss, $l_2$ penalty, $\alpha=.0001$,  Bigram language modeling with Tf-Idf included gave us the highest test accuracy at 74.9\%.
+	This research attempts to predict a speaker's political party affiliation based on the language used in their congressional speeches. We are using the \href{http://www.cs.cornell.edu/home/llee/data/convote.html}{Congressional speeches dataset} created by Lillian Lee at Cornell \cite{thomas2006get}. The dataset has been preprocessed somewhat and split into train, validation, and test sets.  We first perform exploratory data analysis to ensure high data quality and understand some idiosyncrasies of this data asset. We look at differences between the parties in commonly used terms for insight into differences in policy positions. We then use the \cite{pedregosa2011scikit} Scikit Learn library to create a data analysis pipeline to ensure that we have consistency in how the data is being processed while testing both Multinomial Naive Bayes and Stochastic Gradient Descent classifiers.  For each we use 3-fold cross validation to search for optimal hyper-parameters and optimal pre-processing techniques.  We compare cross validation accuracy between unigram and bigram language models and also train our classifiers both including Tf-Idf weighting and excluding Tf-Idf weighting. Ultimately we found that Stochastic Gradient Descent with Hinge loss, $l_2$ penalty, $\alpha=.0001$,  Bigram language modeling with Tf-Idf included gave us the highest test accuracy at 74.9\%.
 	
 \section{Related Works}
 \label{gen_inst}
@@ -76,7 +78,8 @@ we                & 16039                 & nassau & 1 \\
 \end{tabular}
 \end{table}
 \noindent
-
+\subsection{Term Differences by Party}
+We split the corpus by party affiliation and analyzed the word frequencies for each party to create lists of most frequently and least frequently used terms for each. While there were many common terms like determiners, prepositions and conjunctions, there were some interesting differences. Democrats used terms affiliated with education, healthcare, and energy much more frequently than Republicans in our corpus. 
 
 %\begin{figure}[!ht]
 %\centering
@@ -105,9 +108,9 @@ Once the pipeline is constructed we preform an exhaustive search for optimal hyp
 The equation for the Naive Bayes classifier is expressed mathematically in the scikit learn documentation \cite{pedregosa2011scikit} as: \[f_{NB}(y)=\arg\max_{y\in Y} P(y) \prod_{i=1}^{n} P(x_i|y)\]
 Where $Y$ is the set of classes $y$ and $P(y)$ is a given class's probability and $P(x_i|y)$ is the marginal class conditional distributions.  $P(y)$ and $P(x_i|y)$ are learned from the training data. Since Multinomial Naive Bayes pertains to multi-class classification, $\phi_{y_i}=\frac{N_{y_i}+\alpha}{N_y +\alpha n}$. Here $\phi_{y_i}$  returns the maximum likelihood that a term is a member of a given class. The hyper-parameter for Multinomial Naive Bayes is a smoothing term $\alpha$ to correct for out of data observations.  Initially no smoothing is included to set a baseline accuracy score. Then, a wide range of $\alpha$ differing in multiples of 10 from from .0001 to 1000 will are searched initially and then a specific range around the best preforming power of 10 is searched more exhaustively.
 \subsubsection{Stochastic Gradient Descent Experiments}
-The Stochastic Gradient Descent classifier in scikit learn allows for different loss functions to be passed as a hyperperameter, where gradient descent is performed to find the optimal local minima of the training error corresponding to highest accuracy. The scikit learn documentation \cite{pedregosa2011scikit} expresses this mathematically as 
+The Stochastic Gradient Descent classifier in Scikit learn allows for different loss functions to be passed as a hyper-perameter, where gradient descent is performed to find the optimal local minima of the training error corresponding to highest accuracy. The Scikit learn documentation \cite{pedregosa2011scikit} expresses this mathematically as 
 \[E(w,b)=\frac{1}{n}\sum_{i=1}^{n}L(y_i,f(x_i))+\alpha R(w)\]
-where $L$ corresponds to a loss function, $R$ is a regularization term and $\alpha$ is a regularization multiple. Selecting the $Logistic$ $Loss$ function $\log(1+e^{-y_ig(\bm{x})})$ where $g(\bm{x})=\bm{w}^T\bm{x}+b$ effectively turns this classifier into Logistic Regression, while the $Hinge$ $Loss$ function  $\max(0, 1 - y_ig(\bm{x}_i))$ implements a Linear Support Vector Machine classifier and the $Perceptron$ $Loss$ implements the Perceptron algorithm.  Each of these classifiers share a regularization hyperperameter that can be set to $l1$ corresponding to the $l_1$ norm $||x||_1=\sum_{i=1}^n |x_i|$, $l2$ corresponding to the $l_2$ norm $||x||_2= \frac{1}{2} \sum_{i=1}^{n} x_i^2$ or to $none$ for no regularization. Again initially a baseline is recorded using default parameters followed by a search of a  wide range of $\alpha$'s differing in multiples of 10 from from .0001 to 1000. Once a region of high cross validation accuracy is found a search around the best preforming power of 10 is conducted to find the highest accuracy.
+where $L$ corresponds to a loss function, $R$ is a regularization term and $\alpha$ is a regularization multiple. Selecting the Logistic loss function $\log(1+e^{-y_ig(\bm{x})})$ where $g(\bm{x})=\bm{w}^T\bm{x}+b$ effectively turns this classifier into Logistic Regression, while the Hinge loss function  $\max(0, 1 - y_ig(\bm{x}_i))$ implements a Linear Support Vector Machine classifier and the Perceptron loss implements the Perceptron algorithm.  Each of these classifiers share a regularization hyper-perameter that can be set to $l1$ corresponding to the $l_1$ norm $||x||_1=\sum_{i=1}^n |x_i|$, $l2$ corresponding to the $l_2$ norm $||x||_2= \frac{1}{2} \sum_{i=1}^{n} x_i^2$ or to $none$ for no regularization. Again initially a baseline is recorded using default parameters followed by a search of a  wide range of $\alpha$'s differing in multiples of 10 from from .0001 to 1000. Once a region of high cross validation accuracy is found a search around the best preforming power of 10 is conducted to find the highest accuracy.
 
 \noindent
 \section{Experiments and Results}
@@ -145,7 +148,18 @@ For both classifiers we found that bigram language models and including Tf-idf w
 \label{fig: lm}
 \end{figure}
 \subsection{Optimal Hyper-parameters and Results}
-Including Tf-Idf
+For both Multinomial Naive Bayes and Stochastic Gradient Descent experiments we included Tf-Idf weighting and bigram language models. For Multinomial Naive Bayes we found an optimal $\alpha$ smoothing parameter at $\alpha=.05$ which resulted in a 3-fold cross-validation accuracy of 68.9\% and a test accuracy of 70.6\%. The Stochastic Gradient Descent classifier has many more hyper-parameters. The most important of these is the loss function because it determines the classification function. The Hinge loss function was found to be the most accurate in initial tests but we include the other loss functions in all cross-validation grid searches. While each loss function has its own set of optimal hyper-parameters, in general we find that the $l2$ norm penalty with a small regularization constant multiple $\alpha$ worked well with the Hinge loss function. We then searched a range of $\alpha$'s close to 0 as seen in \autoref{fig: sgd}. An optimal value of $\alpha=0.0001$ resulted in a 3-fold cross-validation accuracy of 70.9\% and a test accuracy of 74.8\%, which is the highest test accuracy we observed.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.5\linewidth]{ZoomedL2NormSVM.png}
+\caption[SGDClassifier with Hinge Loss and $l2$ Penalty Over a Range of $\alpha$ ]{SGDClassifier with Hinge Loss and $l2$ Penalty Over Range of $\alpha$'s}
+\label{fig: sgd}
+\end{figure}
+
+\section{Discussion and Future Work}
+Overall our results seem to match those found in previous research. Thomas et al. note \cite{thomas2006get} that Support Vector Machines achieved the highest test accuracy of 71.2\% in predicting if a speaker would vote for or against a bill using this same corpus. This is similar to our result in that the Hinge loss function is the same used by Support Vector Machines and political party affiliation may be highly correlated with positions on a given bill.  Our higher accuracy may be do to many factors including our preforming a more exhaustive hyper-parameter search, or even the fact that not all votes are cast along party affiliation lines. That said, the fact that the same corpus is used and similar classification methods optimal results for both research questions is reassuring. An interesting future project to preform in the same vein as this research would be to test a recurrent neural network's performance, as mentioned by Iyyer \cite{iyyer2014political}, and see if accuracy increases. 
+\newpage
 \bibliographystyle{plain}
 \bibliography{nlpFinal}
 \end{document}

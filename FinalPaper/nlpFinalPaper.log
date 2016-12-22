@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  21 DEC 2016 20:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  21 DEC 2016 22:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -384,85 +384,86 @@ Underfull \hbox (badness 10000) in paragraph at lines 15--21
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 33--34
-
- []
-
 [1
 
 {/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 35--37
+Underfull \hbox (badness 10000) in paragraph at lines 35--36
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 44--45
+Underfull \hbox (badness 10000) in paragraph at lines 37--39
 
  []
 
-[2] <zipfslaw.pdf, id=85, 578.16pt x 433.62pt>
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 46--47
+
+ []
+
+<zipfslaw.pdf, id=100, 578.16pt x 433.62pt>
 File: zipfslaw.pdf Graphic file (type pdf)
  <use zipfslaw.pdf>
-Package pdftex.def Info: zipfslaw.pdf used on input line 50.
+Package pdftex.def Info: zipfslaw.pdf used on input line 52.
 (pdftex.def)             Requested size: 226.48395pt x 169.85878pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 90--91
+ [3] [4 <./zipfslaw.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 93--94
 
  []
 
-[3] [4 <./zipfslaw.pdf>] [5] [6] [7]
-<FiguresSVM_TFIDF_on_off_hinge.pdf, id=160, 578.16pt x 433.62pt>
+[5] [6] [7] <FiguresSVM_TFIDF_on_off_hinge.pdf, id=176, 578.16pt x 433.62pt>
 File: FiguresSVM_TFIDF_on_off_hinge.pdf Graphic file (type pdf)
 
 <use FiguresSVM_TFIDF_on_off_hinge.pdf>
 Package pdftex.def Info: FiguresSVM_TFIDF_on_off_hinge.pdf used on input line 1
-21.
+24.
 (pdftex.def)             Requested size: 144.95303pt x 108.70909pt.
 
-<FiguresSVM_TFIDF_on_off_log.pdf, id=161, 578.16pt x 433.62pt>
+<FiguresSVM_TFIDF_on_off_log.pdf, id=177, 578.16pt x 433.62pt>
 File: FiguresSVM_TFIDF_on_off_log.pdf Graphic file (type pdf)
 
 <use FiguresSVM_TFIDF_on_off_log.pdf>
-Package pdftex.def Info: FiguresSVM_TFIDF_on_off_log.pdf used on input line 124
+Package pdftex.def Info: FiguresSVM_TFIDF_on_off_log.pdf used on input line 127
 .
 (pdftex.def)             Requested size: 144.95303pt x 108.70909pt.
 
-<FiguresSVM_TFIDF_on_off_perceptron.pdf, id=162, 578.16pt x 433.62pt>
+<FiguresSVM_TFIDF_on_off_perceptron.pdf, id=178, 578.16pt x 433.62pt>
 File: FiguresSVM_TFIDF_on_off_perceptron.pdf Graphic file (type pdf)
 
 <use FiguresSVM_TFIDF_on_off_perceptron.pdf>
 Package pdftex.def Info: FiguresSVM_TFIDF_on_off_perceptron.pdf used on input l
-ine 127.
+ine 130.
 (pdftex.def)             Requested size: 144.95303pt x 108.70909pt.
 
-<FiguresSVM_bigram_hinge.pdf, id=163, 578.16pt x 433.62pt>
+<FiguresSVM_bigram_hinge.pdf, id=179, 578.16pt x 433.62pt>
 File: FiguresSVM_bigram_hinge.pdf Graphic file (type pdf)
 
 <use FiguresSVM_bigram_hinge.pdf>
-Package pdftex.def Info: FiguresSVM_bigram_hinge.pdf used on input line 136.
+Package pdftex.def Info: FiguresSVM_bigram_hinge.pdf used on input line 139.
 (pdftex.def)             Requested size: 144.95303pt x 108.70909pt.
 
-<FiguresSVM_bigram_log.pdf, id=164, 578.16pt x 433.62pt>
+<FiguresSVM_bigram_log.pdf, id=180, 578.16pt x 433.62pt>
 File: FiguresSVM_bigram_log.pdf Graphic file (type pdf)
 
 <use FiguresSVM_bigram_log.pdf>
-Package pdftex.def Info: FiguresSVM_bigram_log.pdf used on input line 139.
+Package pdftex.def Info: FiguresSVM_bigram_log.pdf used on input line 142.
 (pdftex.def)             Requested size: 144.95303pt x 108.70909pt.
 
-<FiguresSVM_bigram_perceptron.pdf, id=165, 578.16pt x 433.62pt>
+<FiguresSVM_bigram_perceptron.pdf, id=181, 578.16pt x 433.62pt>
 File: FiguresSVM_bigram_perceptron.pdf Graphic file (type pdf)
 
 <use FiguresSVM_bigram_perceptron.pdf>
 Package pdftex.def Info: FiguresSVM_bigram_perceptron.pdf used on input line 14
-2.
+5.
 (pdftex.def)             Requested size: 144.95303pt x 108.70909pt.
- (./nlpFinalPaper.bbl [8 <./FiguresSVM_TFIDF_on_off_hinge.pdf> <./FiguresSVM_TF
-IDF_on_off_log.pdf
+ [8]
+<ZoomedL2NormSVM.png, id=190, 867.24pt x 578.16pt>
+File: ZoomedL2NormSVM.png Graphic file (type png)
+ <use ZoomedL2NormSVM.png>
+Package pdftex.def Info: ZoomedL2NormSVM.png used on input line 155.
+(pdftex.def)             Requested size: 226.48395pt x 150.98853pt.
+
+[9 <./FiguresSVM_TFIDF_on_off_hinge.pdf> <./FiguresSVM_TFIDF_on_off_log.pdf
 
 pdfTeX warning: /Library/TeX/Distributions/Programs/texbin/pdflatex (file ./Fig
 uresSVM_TFIDF_on_off_log.pdf): PDF inclusion: multiple pdfs with page group inc
@@ -487,32 +488,25 @@ in a single page
 pdfTeX warning: /Library/TeX/Distributions/Programs/texbin/pdflatex (file ./Fig
 uresSVM_bigram_perceptron.pdf): PDF inclusion: multiple pdfs with page group in
 cluded in a single page
->])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 151.
- [9]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 151.
+>] [10 <./ZoomedL2NormSVM.png>] (./nlpFinalPaper.bbl)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 165.
+ [11]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 165.
  (./nlpFinalPaper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 151.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 151.
-
-
-Package rerunfilecheck Warning: File `nlpFinalPaper.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `nlpFinalPaper.out':
-(rerunfilecheck)             Before: 397A3F4990BABB9BB28F1CC2177D9B29;953
-(rerunfilecheck)             After:  D51526211E104A20ACE65C084DAF2F8E;1039.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 151.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 165.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 165.
+Package rerunfilecheck Info: File `nlpFinalPaper.out' has not changed.
+(rerunfilecheck)             Checksum: 26EDFFCA18EA3C87F37211D42A3E1522;1220.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 165.
  ) 
 Here is how much of TeX's memory you used:
- 7468 strings out of 493117
- 109731 string characters out of 6135433
- 295700 words of memory out of 5000000
- 10806 multiletter control sequences out of 15000+600000
+ 7485 strings out of 493117
+ 109967 string characters out of 6135433
+ 291789 words of memory out of 5000000
+ 10815 multiletter control sequences out of 15000+600000
  11377 words of font info for 40 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 29i,9n,32p,1468b,438s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 29i,9n,32p,1468b,332s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 ></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><
@@ -525,10 +519,10 @@ sr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/
 local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/l
 ocal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/loc
 al/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on nlpFinalPaper.pdf (9 pages, 346338 bytes).
+Output written on nlpFinalPaper.pdf (11 pages, 406356 bytes).
 PDF statistics:
- 517 PDF objects out of 1000 (max. 8388607)
- 195 compressed objects within 2 object streams
- 33 named destinations out of 1000 (max. 500000)
- 148 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 551 PDF objects out of 1000 (max. 8388607)
+ 224 compressed objects within 3 object streams
+ 39 named destinations out of 1000 (max. 500000)
+ 185 words of extra memory for PDF output out of 10000 (max. 10000000)
 
