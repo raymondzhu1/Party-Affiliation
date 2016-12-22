@@ -1,0 +1,5 @@
+We used the congressional speech dataset available at this URL:
+http://www.cs.cornell.edu/home/llee/data/convote/convote_v1.1.tar.gz
+Replace paths appropriately and run nlpProjectCode_v4.py with Scikit Learn v 1.17 to run classification
+Dataset Exploration is contained in nlpProjectCode_v5.py
+To create figures, address paths appropriately and run posterFigures.py 
